@@ -1,0 +1,18 @@
+{
+    "platform": [
+    {
+        "k210": {
+            "kflash": {
+                "install_script": "",
+                "support_system": ["linux", "windows", "macos"]
+            }
+        }
+    },
+    {
+        "ststm32": {
+            "install_script": "",
+            "support_system": ["linux", "windows", "macos"]
+        }
+    }
+    ]
+}
