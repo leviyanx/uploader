@@ -1,18 +1,8 @@
 {
-    "platform": [
-    {
-        "k210": {
-            "kflash": {
-                "install_script": "",
-                "support_system": ["linux", "windows", "macos"]
-            }
-        }
-    },
-    {
-        "ststm32": {
-            "install_script": "",
-            "support_system": ["linux", "windows", "macos"]
-        }
+    "kflash": {
+        "version": "v0.4.1",
+        "url": "https://github.com/kendryte/kendryte-flash-windows/releases/download/v0.4.1/K-Flash.zip",
+        "pack_name": "K-Flash.zip",
+        "executable_path": "K-Flash/K-Flash.exe"
     }
-    ]
 }
