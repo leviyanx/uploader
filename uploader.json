@@ -1,8 +1,10 @@
 {
     "kflash": {
-        "version": "v0.4.1",
-        "url": "https://github.com/kendryte/kendryte-flash-windows/releases/download/v0.4.1/K-Flash.zip",
-        "pack_name": "K-Flash.zip",
-        "executable_path": "K-Flash/K-Flash.exe"
+        "win": {
+            "version": "v0.4.1",
+            "url": "https://github.com/kendryte/kendryte-flash-windows/releases/download/v0.4.1/K-Flash.zip",
+            "pack_name": "K-Flash.zip",
+            "executable_path": "K-Flash/K-Flash.exe"
+        }
     }
 }
