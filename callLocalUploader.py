@@ -13,6 +13,10 @@ def installUploader(uploaderInfo):
     uploaderPathDir = os.path.join(os.path.dirname(__file__),
                                os.path.dirname(uploaderInfo['executable_path']).split(os.path.sep)[0])
     try:
+        if not os.path.exists(os.path.join(os.path.dirname(__file__), 'tmp')):
+            os.makedirs(os.path.join(os.path.dirname(__file__), 'tmp'));
+            print('Created the tmp directory.')
+
         # download the uploader
         r = requests.get(uploaderInfo['url'], stream=True)
         with open(tmpPackFilePath, 'wb') as f:
@@ -50,7 +54,7 @@ def main(argv):
     
     if uploaderPath != '':
         if (sys.platform == 'win32'):
-            os.popen('Start-Process -FilePath ' + uploaderPath)
+            os.popen('powershell Start-Process -FilePath ' + uploaderPath)
         elif (sys.platform == 'darwin'):
             os.popen(uploaderPath)
         elif (sys.platform == 'linux'):
@@ -66,9 +70,9 @@ def main(argv):
             uploaderPath = os.path.join(os.path.expanduser('~'), '.superide/uploaders', uploaderInfo['executable_path'])
             if (os.path.exists(uploaderPath) is False):
                 installUploader(uploaderInfo)
-                os.popen('Start-Process -FilePath ' + uploaderPath)
+                os.popen('powershell Start-Process -FilePath ' + uploaderPath)
             else:
-                os.popen('Start-Process -FilePath ' + uploaderPath)
+                os.popen('powershell Start-Process -FilePath ' + uploaderPath)
 
         elif (sys.platform == 'linux'):
             uploaderInfo = getUploaderInfo(uploaderName, 'linux')
