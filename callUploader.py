@@ -53,12 +53,22 @@ def main(argv):
             uploaderName = arg
     
     if uploaderPath != '':
-        if (sys.platform == 'win32'):
-            os.popen('powershell Start-Process -FilePath ' + uploaderPath)
-        elif (sys.platform == 'darwin'):
-            os.popen(uploaderPath)
-        elif (sys.platform == 'linux'):
-            os.popen(uploaderPath)
+        if (os.path.isfile(uploaderPath) is False):
+            raise Exception(uploaderPath + ' is not a file.')
+        if (os.path.exists(uploaderPath) is False):
+            raise Exception('The uploader (' + uploaderPath + ') is not exist.')
+
+        try:
+            if (sys.platform == 'win32'):
+                os.popen('powershell Start-Process -FilePath ' + uploaderPath)
+            elif (sys.platform == 'darwin'):
+                os.popen(uploaderPath)
+            elif (sys.platform == 'linux'):
+                os.popen(uploaderPath)
+        except Exception as e:
+            print(e)
+            print('Failed to call the uploader.')
+            sys.exit(2)
     
     if uploaderName != '':
         if (sys.platform == 'win32'):
