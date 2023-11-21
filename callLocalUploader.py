@@ -64,7 +64,7 @@ def main(argv):
         if (sys.platform == 'win32'):
             uploaderInfo = getUploaderInfo(uploaderName, 'win')
             if uploaderInfo is None:
-                print("We hasn't support Uploader " + uploaderName + " on Windows.")
+                print("Don't find the " + uploaderName + " (win) in uploader.json.")
                 sys.exit(2)
 
             uploaderPath = os.path.join(os.path.expanduser('~'), '.superide/uploaders', uploaderInfo['executable_path'])
@@ -77,7 +77,7 @@ def main(argv):
         elif (sys.platform == 'linux'):
             uploaderInfo = getUploaderInfo(uploaderName, 'linux')
             if uploaderInfo is None:
-                print("We hasn't support Uploader " + uploaderName + " on Linux.")
+                print("Don't find the " + uploaderName + " (linux) in uploader.json.")
                 sys.exit(2)
 
             uploaderPath = os.path.join(os.path.expanduser('~'), '.superide/uploaders', uploaderInfo['executable_path'])
@@ -90,7 +90,7 @@ def main(argv):
         elif (sys.platform == 'darwin'):
             uploaderInfo = getUploaderInfo(uploaderName, 'darwin')
             if uploaderInfo is None:
-                print("We hasn't support Uploader " + uploaderName + " on Mac.")
+                print("Don't find the " + uploaderName + " (darwin) in uploader.json.")
                 sys.exit(2)
 
             uploaderPath = os.path.join(os.path.expanduser('~'), '.superide/uploaders', uploaderInfo['executable_path'])
